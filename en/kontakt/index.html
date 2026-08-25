@@ -277,7 +277,6 @@
                         var msg = f['message'].value.trim();
                         if (f['cadastral'].value.trim()) msg += '\nKatastritunnus: ' + f['cadastral'].value.trim();
                         var file = document.getElementById('kontakt-210-file');
-                        if (file && file.files && file.files[0]) msg += '\nLisatud fail: ' + file.files[0].name + ' (palun saatke see vastusena e-kirjale)';
                         var payload = {
                             source:  'contact-form',
                             website: f['website'].value,
@@ -291,8 +290,7 @@
                         var tsBox = document.getElementById('kontakt-210-ts');
                         fetch('/', {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                            body: new URLSearchParams({ 'form-name': 'kontakt', website: payload.website, name: payload.name, email: payload.email, phone: payload.phone, message: payload.message }).toString()
+                            body: (function () { var fd = new FormData(form); fd.set('form-name', 'kontakt'); return fd; })()
                         }).then(function (r) {
                             if (r.ok) {
                                 form.style.display = 'none';
