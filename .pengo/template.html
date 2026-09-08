@@ -4,29 +4,32 @@
 
 <head>
 
+    <!--
+      PENGO ARTICLE TEMPLATE. This file is NOT a page on the website.
+      Every Pengo article is rendered into a copy of this file at build time.
+      Rules that will break publishing if broken:
+        1. Keep exactly one PENGO_HEAD marker comment inside this head block.
+        2. Keep exactly one PENGO_BODY marker comment inside the article section.
+        3. Do not add a title, canonical link, meta description or Article JSON+LD
+           here. The builder writes those per article; duplicates are a real bug.
+        4. Keep asset paths root relative, starting with a slash, because articles
+           live one level deeper at /teadmised/<slug>/.
+      To restyle articles, edit the site design as usual and mirror it here.
+      Full notes: .pengo/README.md
+    -->
+
+
     <meta charset="UTF-8">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-      <title>Metsa ülestöötamine ja raieliigid — lageraie, harvendusraie, sanitaarraie</title>
-  <meta name="description" content="Mis on metsa ülestöötamine ja millised on peamised raieliigid. Selgitame lage-, harvendus- ja sanitaarraie erinevused metsaomanikule.">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.metsahind.com/metsa-ulestootamine">
   <meta name="theme-color" content="#fafcfa">
   <meta name="base-url" content="https://www.metsahind.com">
-  <link rel="alternate" hreflang="et" href="https://www.metsahind.com/metsa-ulestootamine">
-  <link rel="alternate" hreflang="x-default" href="https://www.metsahind.com/metsa-ulestootamine">
   <meta property="og:type" content="article">
   <meta property="og:site_name" content="Titanwood">
-  <meta property="og:title" content="Metsa ülestöötamine ja raieliigid — lageraie, harvendusraie, sanitaarraie">
-  <meta property="og:description" content="Mis on metsa ülestöötamine ja millised on peamised raieliigid. Selgitame lage-, harvendus- ja sanitaarraie erinevused metsaomanikule.">
-  <meta property="og:url" content="https://www.metsahind.com/metsa-ulestootamine">
   <meta property="og:locale" content="et">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Metsa ülestöötamine ja raieliigid — lageraie, harvendusraie, sanitaarraie">
-  <meta name="twitter:description" content="Mis on metsa ülestöötamine ja millised on peamised raieliigid. Selgitame lage-, harvendus- ja sanitaarraie erinevused metsaomanikule.">
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebPage","name":"Metsa ülestöötamine ja raieliigid — lageraie, harvendusraie, sanitaarraie","description":"Mis on metsa ülestöötamine ja millised on peamised raieliigid. Selgitame lage-, harvendus- ja sanitaarraie erinevused metsaomanikule.","url":"https://www.metsahind.com/metsa-ulestootamine","inLanguage":"et","isPartOf":{"@type":"WebSite","name":"Titanwood","url":"https://www.metsahind.com"},"dateModified":"2026-06-20T09:17:28+03:00"}</script>
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.metsahind.com"},{"@type":"ListItem","position":2,"name":"Metsa ülestöötamine — raieliigid selgeks","item":"https://www.metsahind.com/metsa-ulestootamine"}]}</script>
     <link rel="icon" href="@seed/favicon_titanwood.PNG">    
 
     <!-- Google Fonts -->
@@ -53,6 +56,15 @@
 
         
 
+    <style>
+      /* Pengo article: match the site's existing .proosa rhythm.
+         :where() keeps specificity at zero so .proosa h2/h3 margins still win. */
+      .proosa :where(article)>*+*{margin-top:1.4em}
+      .proosa :where([data-pengo-article])>*+*{margin-top:1.4em}
+      .proosa :where(article)>h1{font-family:Bricolage Grotesque,sans-serif;font-weight:400;font-size:clamp(2.25rem,5vw,3.75rem);line-height:1.1;color:#080c0a;margin:0 0 2rem}
+      .proosa :where(article)>img{width:100%;aspect-ratio:21/9;object-fit:cover;margin:0 0 2.5rem}
+    </style>
+    <!-- PENGO_HEAD -->
 </head>
 
 <body 
@@ -117,73 +129,21 @@
     </div>
 </header>
 </section>
-<section class="cms-block cms-block--article-hero"><section class="pt-32 pb-20 md:pt-48 md:pb-28 bg-[#fafcfa] text-brand-dark relative overflow-hidden">
+<section class="cms-block cms-block--article-content"><section class="pt-32 pb-12 md:pt-48 md:pb-16 bg-[#fafcfa] text-brand-dark relative overflow-hidden">
     <div class="absolute top-0 right-0 w-full md:w-1/2 h-[500px] bg-brand-green/5 rounded-full blur-[150px] pointer-events-none translate-x-1/4 -translate-y-1/4"></div>
 
     <div class="w-full lg:max-w-[75%] mx-auto px-6 relative z-10">
-        <div class="max-w-[760px] reveal-on-scroll">
+        <div class="max-w-[760px]">
             <div class="flex flex-wrap items-center gap-3 text-brand-green font-medium tracking-widest uppercase text-xs mb-6">
                 <a href="/teadmised" class="inline-flex items-center gap-2 hover:text-brand-dark transition-colors">
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M19 12H5M12 19l-7-7 7-7"></path></svg>
-                    <span >Teadmised</span>
+                    <span>Teadmised</span>
                 </a>
-                                <span class="text-brand-dark/20">·</span>
-                <span class="text-brand-dark/55" >Metsamajandus</span>
-                            </div>
+            </div>
 
-            <h1 class="text-4xl md:text-5xl lg:text-6xl font-serif text-brand-dark mb-8 leading-[1.1]"
-                >Metsa ülestöötamine — raieliigid selgeks</h1>
-                        <p class="text-brand-dark/65 text-base md:text-lg font-light leading-relaxed mb-10 max-w-[560px]"
-               >Lageraie, harvendusraie, sanitaarraie — mida need tähendavad ja mida iga raieliik metsaomanikule annab.</p>
-            
-            <div class="flex flex-wrap items-center gap-6 text-[11px] uppercase tracking-widest text-brand-dark/50 font-medium">
-                <span>5 min lugemist</span>                <span class="w-1 h-1 rounded-full bg-white/20"></span>                <span>Uuendatud 14.06.2026</span>            </div>
-        </div>
-    </div>
-</section>
-</section>
-<section class="cms-block cms-block--article-content"><section class="py-12 md:py-16 bg-[#fafcfa] text-brand-dark relative overflow-hidden">
-    <div class="w-full lg:max-w-[75%] mx-auto px-6 relative z-10">
-        <div class="max-w-[760px]">
-            <img src="/assets/uploads/blogi/mh-ulestootamine.webp" alt="" class="w-full aspect-[21/9] object-cover mb-10">
-            <article class="proosa" >
-                <p><strong>Metsa ülestöötamine</strong> on protsess, mille käigus kasvavast metsast saab müügivalmis puit: puude langetamine, tüvede laasimine ja järkamine sortimentideks ning puidu kokkuvedu. Iga ülestöötamine algab raiest — ja just <strong>raieliik</strong> määrab, kui palju metsa võetakse, mis sellest järele jääb ning milline on töö mõju kinnistu tulevasele väärtusele.</p>
-
-<h2>Mis on metsa ülestöötamine?</h2>
-<p>Ülestöötamine hõlmab kolme etappi:</p>
-<ol>
-  <li><strong>Langetamine</strong> — puud saetakse maha kas saemehe või harvesteriga.</li>
-  <li><strong>Laasimine ja järkamine</strong> — tüved puhastatakse okstest ja lõigatakse sortimentideks: palk, paberipuit, küttepuit.</li>
-  <li><strong>Kokkuvedu</strong> — puit veetakse laoplatsile, kust see liigub ostjani.</li>
-</ol>
-<p>Ülestöötamise kulu — eelkõige ligipääs ja veokaugus — mõjutab otseselt seda, kui palju mets omanikule sisse toob.</p>
-
-<h2>Raieliigid Eesti metsas</h2>
-<p>Raied jagunevad kahte suurde rühma: <strong>uuendusraie</strong> (mets võetakse maha, et kasvatada uus) ja <strong>hooldusraie</strong> (metsa harvendatakse, et allesjääv puistu kasvaks paremini).</p>
-
-<h3>Uuendusraie</h3>
-<ul>
-  <li><strong>Lageraie</strong> — kogu puistu raiutakse korraga ühelt langilt. Lubatud raieküpses metsas; pärast raiet tekib omanikul metsa uuendamise kohustus (istutamine või looduslik uuenemine).</li>
-  <li><strong>Turberaie</strong> — mets uuendatakse mitmes järgus (aegjärkne, häil- või veerraie), nii et uus põlvkond saab kasvada vana metsa kaitse all. Sobib teatud kasvukohtadele ja sageli tundlikumatele aladele.</li>
-</ul>
-
-<h3>Hooldusraie</h3>
-<ul>
-  <li><strong>Valgustusraie</strong> — noores metsas eemaldatakse liigne ja vähemväärtuslik järelkasv, et väärtuslikumad puud saaksid valgust ja ruumi.</li>
-  <li><strong>Harvendusraie</strong> — keskealises metsas võetakse välja osa puid, et allesjäänud tüved jämeneksid kiiremini ja annaksid tulevikus väärtuslikumat palki.</li>
-  <li><strong>Sanitaarraie</strong> — eemaldatakse kahjustatud, haiged, kuivanud või tormimurtud puud, et takistada kahjurite ja haiguste levikut.</li>
-</ul>
-
-<h2>Milline raie millal sobib?</h2>
-<p>Õige raieliik sõltub metsa vanusest, seisundist ja kasvukohast. Noor mets vajab valgustus- ja harvendusraiet, et kvaliteetselt edasi kasvada. Raieküps mets on valmis uuendusraieks. Kahjustatud või tormimurruga mets vajab sageli kiiret sanitaarraiet, et väärtust mitte kaotada. Mis konkreetsel kinnistul mõistlik on, selgub metsamajanduskavast ja kohapealsest ülevaatusest.</p>
-
-<h2>Mida ülestöötamine omanikule tähendab?</h2>
-<p>Metsast tulu teenimiseks on kaks peamist teed:</p>
-<ul>
-  <li><strong>Müüd raieõiguse</strong> — ostja korraldab ja kannab ülestöötamise (tehnika, logistika, müük). Sina saad kokkulepitud summa ja vaeva ei näe. Loe lähemalt: <a href="/raieoigus">raieõiguse müük ja ost</a>.</li>
-  <li><strong>Töötad ise üles ja müüd sortimendid</strong> — võib anda suurema kogutulu, kuid eeldab tehnikat, teadmisi ja riskijulgust.</li>
-</ul>
-<p>Aitame hinnata, milline lahendus annab just sinu metsa puhul parima tulemuse — ka keerulisematel ja piirangutega kinnistutel.</p>            </article>
+            <div class="proosa">
+                <!-- PENGO_BODY -->
+            </div>
         </div>
     </div>
 </section>
@@ -406,4 +366,3 @@
 </body>
 
 </html>
-

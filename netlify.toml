@@ -1,0 +1,21 @@
+# PENGO PUBLISHING. Netlify reads this file from the repository, and it OVERRIDES
+# whatever is set in the Netlify web interface. Do not also set a different build
+# command or publish directory in the UI, because this file wins and the two will
+# disagree confusingly.
+#
+# What this does: instead of publishing the repository root as before, Netlify now
+# runs the Pengo builder, which copies every existing page into .pengo-build and
+# adds the Pengo articles, the article list, the sitemap and the setup proof file.
+#
+# If you change "publish" back to "." the site still loads, but every Pengo article
+# disappears, /.well-known/pengo.json disappears and Pengo reports the install as
+# broken. If you delete this file entirely, the same thing happens.
+#
+# Full notes: .pengo/README.md
+
+[build]
+  command = "node .pengo/build.mjs --source . --output .pengo-build"
+  publish = ".pengo-build"
+
+[build.environment]
+  NODE_VERSION = "24"

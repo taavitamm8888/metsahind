@@ -1,0 +1,6 @@
+# Generated output of the Pengo build. Never commit it: Netlify regenerates it on
+# every deploy, and a stale committed copy would shadow the real one.
+.pengo-build/
+
+# Note: .pengo/ itself must stay in Git. It holds the manifest, the article
+# template and the article JSON that Pengo commits. Ignoring it breaks publishing.
