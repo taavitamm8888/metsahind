@@ -4,3 +4,6 @@
 
 # Note: .pengo/ itself must stay in Git. It holds the manifest, the article
 # template and the article JSON that Pengo commits. Ignoring it breaks publishing.
+
+# Local Netlify CLI state (site link, cache). Machine specific, never commit.
+.netlify/
