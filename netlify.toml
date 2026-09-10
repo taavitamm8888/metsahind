@@ -11,10 +11,14 @@
 # disappears, /.well-known/pengo.json disappears and Pengo reports the install as
 # broken. If you delete this file entirely, the same thing happens.
 #
+# Analytics: tools/inject-analytics.mjs stamps the Clarity and Pengo tags into
+# EVERY built page, so a new page can never ship untracked. IDs live in that
+# one file. Do not paste tracking tags into individual pages again.
+#
 # Full notes: .pengo/README.md
 
 [build]
-  command = "node .pengo/build.mjs --source . --output .pengo-build"
+  command = "node .pengo/build.mjs --source . --output .pengo-build && node tools/inject-analytics.mjs .pengo-build"
   publish = ".pengo-build"
 
 [build.environment]

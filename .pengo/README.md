@@ -32,6 +32,7 @@ Your own pages are copied through untouched. The builder never edits source file
 | `teadmised/index.html` | Yes, carefully | Must keep exactly one PENGO_ARTICLES marker comment. Missing or duplicated, the build fails and the whole site stops deploying. |
 | `netlify.toml` | Yes, carefully | Overrides the Netlify UI. Reverting `publish` to `.` silently drops every article and the proof file. |
 | `.gitignore` | Yes | Must keep ignoring `.pengo-build/` and must never ignore `.pengo/`. |
+| `tools/inject-analytics.mjs` | Yes, carefully | Holds the Clarity and Pengo tracking IDs and stamps them into every built page. Delete it, or drop it from the build command, and the whole site silently loses analytics. |
 
 ## Things that will silently break publishing
 
@@ -51,6 +52,25 @@ Your own pages are copied through untouched. The builder never edits source file
    refuses to overwrite it and the build fails.
 6. **A new page whose folder collides with an article slug** under `/teadmised/`.
    The builder refuses rather than overwriting your page.
+
+## Analytics
+
+The Clarity and Pengo tracking tags are **not** pasted into individual pages. They
+are injected at build time by `tools/inject-analytics.mjs`, which runs after the
+Pengo build and walks every `.html` file in `.pengo-build`.
+
+This is deliberate. Tags used to live in each page, which meant any new page shipped
+untracked until somebody noticed. Now a page cannot be missed, including Pengo
+articles, because they are HTML in the same output directory.
+
+- The tracking IDs live in that one file and nowhere else. Change them there.
+- Running it twice is safe; it marks pages it has already done.
+- If a page has no `</head>`, the build **fails loudly** rather than shipping it
+  untracked. Fix the page rather than removing the check.
+- Do not paste tracking tags into a page by hand. You will end up double counting.
+
+Note the Pengo *tracking* id is not the same as the Pengo *publishing* siteId in
+`config.json`. Two different products. Do not "fix" one to match the other.
 
 ## Checking it still works
 
