@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Main pages. The Pengo build appends its own line for /pengo-sitemap.xml
+# (blog articles) below this one, so do not add that line here.
+Sitemap: https://www.metsahind.com/sitemap.xml
